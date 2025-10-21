@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NBPTableApi.AppDbContext;
 using NBPTableApi.Services;
+using NBPTableApi.Workers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContextSqlite>(options =>
     options.UseSqlite("Data Source=NBPTableProjectDatabase.db"));
 builder.Services.AddHttpClient<INBPService, NBPService>();
+builder.Services.AddHostedService<NBPWorker>();
 
 var app = builder.Build();
 
