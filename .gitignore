@@ -6,3 +6,6 @@
 /NBPTableApi/NBPTableApi/bin/Debug/net8.0
 /NBPTableApi/NBPTableApi/obj
 /NBPTableApi/.vs/NBPTableApi
+NBPTableApi/NBPTableApi/NBPTableProjectDatabase.db
+NBPTableApi/NBPTableApi/NBPTableProjectDatabase.db-shm
+NBPTableApi/NBPTableApi/NBPTableProjectDatabase.db-wal
