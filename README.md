@@ -20,13 +20,13 @@ Backend: ASP.NET Core Web API
 1. Clone the repository
 2. Setup Backend
 - Run dotnet ef database update to create database locally (dotnet ef migrations add Init also if necessary at the beginning),
-- Open the .NET API project in Visual Studio.
-- Run the API (the best will be IIS Express).
-- Copy localhost address e.g. https://localhost:44384
+- Open the .NET API project in Visual Studio,
+- Run the API (the best will be IIS Express),
+- Copy localhost address e.g. https://localhost:44384.
 3. Setup Frontend
-- in .env file fill the address to api e.g. REACT_APP_API_BASE=https://localhost:44384
-- npm install
-- npm start
+- in .env file fill the address to api e.g. REACT_APP_API_BASE=https://localhost:44384,
+- npm install,
+- npm start.
 App should work!
 
 
