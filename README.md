@@ -27,7 +27,7 @@ Backend: ASP.NET Core Web API
 - in .env file fill the address to api e.g. REACT_APP_API_BASE=https://localhost:44384,
 - npm install,
 - npm start.
-App should work!
+- App should work!
 
 
 
