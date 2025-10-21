@@ -14,9 +14,9 @@ namespace NBPTableApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetNBPTable()
+        public async Task<IActionResult> GetNBPTable()
         {
-            var data = nBPService.GetNBPTable();
+            var data = await nBPService.GetNBPTable();
             return Ok(data);
         }
     }

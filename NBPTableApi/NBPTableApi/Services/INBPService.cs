@@ -1,7 +1,9 @@
-﻿namespace NBPTableApi.Services
+﻿using NBPTableApi.Models;
+
+namespace NBPTableApi.Services
 {
     public interface INBPService
     {
-        string GetNBPTable();
+        Task<List<ExchangeRatesTable>> GetNBPTable();
     }
 }

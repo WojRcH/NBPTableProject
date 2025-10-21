@@ -11,13 +11,15 @@ namespace NBPTableApi.Services
 
         public NBPService(AppDbContextSqlite dbContext, HttpClient httpClient) 
         {
-            this.dbContext = new AppDbContextSqlite();
+            this.dbContext = dbContext;
             this.httpClient = httpClient;
         }
 
-        public string GetNBPTable()
+        public async Task<List<ExchangeRatesTable>> GetNBPTable()
         {
-            return "";
+            var url = "https://api.nbp.pl/api/exchangerates/tables/b/?format=json";
+            var tables = await httpClient.GetFromJsonAsync<List<ExchangeRatesTable>>(url);
+            return tables ?? new List<ExchangeRatesTable>();
         }
     }
 }
