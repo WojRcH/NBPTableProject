@@ -1,6 +1,5 @@
 ﻿using NBPTableApi.AppDbContext;
 using NBPTableApi.Models;
-using System.Net.Http;
 
 namespace NBPTableApi.Services
 {
