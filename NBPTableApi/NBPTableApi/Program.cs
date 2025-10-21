@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using NBPTableApi.AppDbContext;
 using NBPTableApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +10,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddHttpClient<NBPService>();
+builder.Services.AddDbContext<AppDbContextSqlite>(options =>
+    options.UseSqlite("Data Source=NBPTableProjectDatabase.db"));
+builder.Services.AddHttpClient<INBPService, NBPService>();
 
 var app = builder.Build();
 
