@@ -44,5 +44,11 @@ namespace NBPTableApi.Services
 
             return tables;
         }
+
+        public async Task<List<ExchangeRatesTable>> GetNBPTableFromDatabase()
+        {
+            return await dbContext.ExchangeRatesTableItems
+                .Include(t => t.Rates).ToListAsync();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace NBPTableApi.Controllers
             this.nBPService = nBPService;
         }
 
-        [HttpGet]
+        [HttpGet("getFromNBPApi")]
         public async Task<IActionResult> GetNBPTable()
         {
             var data = await nBPService.GetNBPTable();
@@ -24,6 +24,13 @@ namespace NBPTableApi.Controllers
         public async Task<IActionResult> UpdateNBPTable()
         {
             var data = await nBPService.UpdateNBPTable();
+            return Ok(data);
+        }
+
+        [HttpGet("getFromDatabase")]
+        public async Task<IActionResult> GetNBPTableFromDatabase()
+        {
+            var data = await nBPService.GetNBPTableFromDatabase();
             return Ok(data);
         }
     }

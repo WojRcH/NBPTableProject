@@ -6,6 +6,7 @@ namespace NBPTableApi.Services
     {
         Task<List<ExchangeRatesTable>> GetNBPTable();
         Task<List<ExchangeRatesTable>> UpdateNBPTable();
+        Task<List<ExchangeRatesTable>> GetNBPTableFromDatabase();
 
     }
 }
