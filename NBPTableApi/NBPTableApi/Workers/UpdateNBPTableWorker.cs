@@ -23,10 +23,10 @@ namespace NBPTableApi.Workers
                     using var scope = serviceProvider.CreateScope();
                     var nbpService = scope.ServiceProvider.GetRequiredService<INBPService>();
 
-                    var tables = await nbpService.UpdateNBPTable()
+                    var records = await nbpService.UpdateNBPTable()
                                    ?? throw new Exception("Not found data from NBP");
 
-                    Console.WriteLine($"[{DateTime.Now}] Updated {tables.FirstOrDefault()?.Rates.Count ?? 0} rates from NBP.");
+                    Console.WriteLine($"[{DateTime.Now}] Updated {records.Count} rates from NBP.");
                 }
                 catch (Exception ex)
                 {

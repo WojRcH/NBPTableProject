@@ -20,6 +20,6 @@ namespace NBPTableApi.Models
         public int ExchangeRatesTableId { get; set; }
 
         [ForeignKey("ExchangeRatesTableId")]
-        public ExchangeRatesTable ExchangeRatesTable { get; set; }
+        public ExchangeRatesTable? ExchangeRatesTable { get; set; }
     }
 }

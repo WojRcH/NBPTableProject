@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NBPTableApi.AppDbContext;
+using NBPTableApi.Dtos;
 using NBPTableApi.Models;
 
 namespace NBPTableApi.Services
@@ -24,7 +25,7 @@ namespace NBPTableApi.Services
             return tables;
         }
 
-        public async Task<List<ExchangeRatesTable>> UpdateNBPTable()
+        public async Task<List<ExchangeRateItemDto>> UpdateNBPTable()
         {
             var tables = await httpClient.GetFromJsonAsync<List<ExchangeRatesTable>>(NbpApiUrl)
                 ?? throw new Exception("Not found data from NBP");
@@ -42,13 +43,29 @@ namespace NBPTableApi.Services
             dbContext.ExchangeRatesTableItems.AddRange(tables);
             await dbContext.SaveChangesAsync();
 
-            return tables;
+            var result = tables.SelectMany(t => t.Rates)
+                .Select(r => new ExchangeRateItemDto
+                {
+                    Code = r.Code,
+                    Currency = r.Currency,
+                    Mid = r.Mid
+                })
+                .ToList();
+
+            return result;
         }
 
-        public async Task<List<ExchangeRatesTable>> GetNBPTableFromDatabase()
+        public async Task<List<ExchangeRateItemDto>> GetNBPTableFromDatabase()
         {
-            return await dbContext.ExchangeRatesTableItems
-                .Include(t => t.Rates).ToListAsync();
+            var rates = await dbContext.ExchangeRateItems
+                .ToListAsync();
+
+            return rates.Select(r => new ExchangeRateItemDto
+            {
+                Code = r.Code,
+                Currency = r.Currency,
+                Mid = r.Mid
+            }).ToList();
         }
     }
 }
