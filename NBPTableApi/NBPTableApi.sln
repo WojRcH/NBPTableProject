@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBPTableApi", "NBPTableApi\NBPTableApi.csproj", "{A6D69FDB-7176-4A67-9A77-C8B151FD643B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6D69FDB-7176-4A67-9A77-C8B151FD643B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D69FDB-7176-4A67-9A77-C8B151FD643B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D69FDB-7176-4A67-9A77-C8B151FD643B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D69FDB-7176-4A67-9A77-C8B151FD643B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {731454F7-9D37-4884-9FA5-C465322A827C}
+	EndGlobalSection
+EndGlobal
