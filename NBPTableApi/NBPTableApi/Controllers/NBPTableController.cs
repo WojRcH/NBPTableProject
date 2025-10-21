@@ -19,5 +19,12 @@ namespace NBPTableApi.Controllers
             var data = await nBPService.GetNBPTable();
             return Ok(data);
         }
+
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdateNBPTable()
+        {
+            var data = await nBPService.UpdateNBPTable();
+            return Ok(data);
+        }
     }
 }
