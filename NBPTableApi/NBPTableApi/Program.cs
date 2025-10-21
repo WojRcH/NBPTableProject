@@ -15,6 +15,16 @@ builder.Services.AddDbContext<AppDbContextSqlite>(options =>
     options.UseSqlite("Data Source=NBPTableProjectDatabase.db"));
 builder.Services.AddHttpClient<INBPService, NBPService>();
 builder.Services.AddHostedService<NBPWorker>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
 
@@ -28,6 +38,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("AllowAll");
 
 app.MapControllers();
 
